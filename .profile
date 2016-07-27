@@ -128,6 +128,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # For quickly maneuvering around the filesystem:
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 export MARKPATH=$HOME/.marks
+<<<<<<< HEAD
 function jump {
     cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
 }
@@ -135,12 +136,24 @@ function mark {
     mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
 }
 function unmark {
+=======
+function jump {
+    cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+function mark {
+    mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function unmark {
+>>>>>>> f04c96310f2094da248f6c0f4ada86d9bca51e9a
     rm -i "$MARKPATH/$1"
 }
 function marks {
     \ls -l "$MARKPATH" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
 }
 
+<<<<<<< HEAD
 
 export NVM_DIR="/Users/cameron/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+=======
+>>>>>>> f04c96310f2094da248f6c0f4ada86d9bca51e9a
