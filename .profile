@@ -4,9 +4,7 @@ alias godacity="cd ~/Udacity/udacity; source venv/bin/activate;"
 alias donedacity="deactivate"
 alias gochromium="cd ~/code/chromium; source chrome/bin/activate;"
 alias chromiumR="open /Users/cameron/code/chromium/depot_tools/src/out/Release/Chromium.app"
-alias server="pushd ~/code/server; python -m SimpleHTTPServer 8000 &bg; popd"
 alias courses="cd ~/Udacity/CD/"
-alias serve="python -m SimpleHTTPServer"
 
 # For quickly opening links on the server running at ~/code/server
 openLocalhost() {
@@ -41,7 +39,8 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 #lazy p
-alias p='python'
+alias p2='python'
+alias p='python3'
 
 # Git enhancements
 source ~/.git-completion.bash
@@ -58,6 +57,7 @@ alias gm='git commit -m'
 alias gma='git commit -am'
 alias gb='git branch'
 alias gco='git checkout'
+alias gt='git tree'
 # alias gra='git remote add'
 # alias grr='git remote rm'
 alias gp='git pull'
@@ -115,4 +115,32 @@ function smart_pwd {
 
 
 PROMPT_COMMAND="git_repo_colored; smart_pwd"
-PS1='\[$gray\]\u \[$GIT_REPO_STATUS_COLOR\]$CURR_GIT_REPO\[$reset\]\[$blue\]$NEW_PWD\n\[$orange\]$ \[$reset\]'
+PS1='\[$gray\]\u \[$GIT_REPO_STATUS_COLOR\]$CURR_GIT_REPO\[$reset\]\[$blue\]$NEW_PWD\n👉  \[$reset\]'
+# The next line updates PATH for the Google Cloud SDK.
+# source '/Users/cameron/code/cpcom/code/google-cloud-sdk/path.bash.inc'
+
+# The next line enables bash completion for gcloud.
+# source '/Users/cameron/code/cpcom/code/google-cloud-sdk/completion.bash.inc'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# For quickly maneuvering around the filesystem:
+# http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
+export MARKPATH=$HOME/.marks
+function jump {
+    cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+function mark {
+    mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function unmark {
+    rm -i "$MARKPATH/$1"
+}
+function marks {
+    \ls -l "$MARKPATH" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
+}
+
+
+export NVM_DIR="/Users/cameron/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

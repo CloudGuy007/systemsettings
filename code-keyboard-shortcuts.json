@@ -1,0 +1,11 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  { "key": "shift+cmd+]",           "command": "workbench.action.nextEditor",
+                                     "when": "editorFocus" },
+  { "key": "shift+cmd+[",           "command": "workbench.action.previousEditor",
+                                     "when": "editorFocus" },
+{ "key": "alt+t",           "command": "workbench.action.tasks.test" },
+{ "key": "cmd+k cmd+u", "command": "extension.changeCase.upper", "when": "editorTextFocus" },
+{ "key": "cmd+k cmd+l", "command": "extension.changeCase.lower", "when": "editorTextFocus" },
+{ "key": "cmd+enter",                    "command": "workbench.action.debug.start", "when": "!inDebugMode" }
+]
