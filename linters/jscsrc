@@ -1,0 +1,10 @@
+{
+	"disallowArrayDestructuringReturn": true,
+	"requireArrayDestructuring": true,
+	"requireEnhancedObjectLiterals": true,
+	"requireFunctionDeclarations": true,
+	"requireObjectDestructuring": true,
+	"requirePaddingNewLinesAfterBlocks": {
+	    "allExcept": ["inProperties", "singleLine"]
+	}
+}
