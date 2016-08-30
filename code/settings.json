@@ -5,6 +5,10 @@
     "editor.tabSize": 2,
     "editor.wrappingColumn": 0,
     "editor.renderWhitespace": true,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontSize": 12,
+    "editor.fontLigatures": true,
+    "eslint.enable": false,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -13,6 +17,7 @@
         "bower_components/": true
     },
     "files.trimTrailingWhitespace": true,
+    "jscs.disableIfNoConfig": true,
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.shellArgs.osx": ["-l"]
 }
