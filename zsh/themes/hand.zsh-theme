@@ -6,18 +6,18 @@ PROMPT='
 
 PROMPT2=' 👈%{$reset_color%} '
 
-RPROMPT='$(_vi_status)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}'
+RPROMPT='$(_vi_status)%{$(echotc UP 1)%}$(get_package_version) $(_git_time_since_commit) $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}'
 
-local _current_dir="%{$fg_bold[blue]%}%3~%{$reset_color%} "
+local _current_dir="%{$fg_bold[blue]%}%3~%{$reset_color%}"
 local _return_status="%{$fg_bold[red]%}%(?..⍉)%{$reset_color%}"
 local _hist_no="%{$fg[grey]%}%h%{$reset_color%}"
 
 function _current_dir() {
   local _max_pwd_length="65"
   if [[ $(echo -n $PWD | wc -c) -gt ${_max_pwd_length} ]]; then
-    echo "%{$fg_bold[blue]%}%-2~ ... %3~%{$reset_color%} "
+    echo "%{$fg_bold[blue]%}%-2~ ... %3~%{$reset_color%}"
   else
-    echo "%{$fg_bold[blue]%}%~%{$reset_color%} "
+    echo "%{$fg_bold[blue]%}%~%{$reset_color%}"
   fi
 }
 
@@ -70,6 +70,23 @@ function _git_time_since_commit() {
   fi
 }
 
+function get_package_version() {
+  # Version key/value should be on his own line
+  if [ -f "package.json" ];
+  then
+    PACKAGE_VERSION=$(cat package.json \
+      | grep version \
+      | head -1 \
+      | awk -F: '{ print $2 }' \
+      | sed 's/[",]//g' \
+      | tr -d '[[:space:]]')
+
+    echo "%{$FG[244]%}v$PACKAGE_VERSION%{$reset_color%}"
+  else
+    echo ''
+  fi
+}
+
 MODE_INDICATOR="%{$fg_bold[yellow]%}❮%{$reset_color%}%{$fg[yellow]%}❮❮%{$reset_color%}"
 
 if is_git_clean;
@@ -84,17 +101,17 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY=""
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%}✚ "
-ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[yellow]%}⚑ "
-ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%}✖ "
-ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[blue]%}▴ "
+ZSH_THEME_GIT_PROMPT_MODIFIED="%{$FG[220]%}⚑ "
+ZSH_THEME_GIT_PROMPT_DELETED="%{$FG[124]%}✖ "
+ZSH_THEME_GIT_PROMPT_RENAMED="%{$FG[099]%}▴ "
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[cyan]%}§ "
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[white]%}◒ "
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$FG[105]%}◒ "
 
 # Colors vary depending on time lapsed.
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_SHORT="%{$fg[green]%}"
 ZSH_THEME_GIT_TIME_SHORT_COMMIT_MEDIUM="%{$fg[yellow]%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_LONG="%{$fg[red]%}"
-ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[white]%}"
+ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$FG[244]%}"
 
 # LS colors, made with http://geoff.greer.fm/lscolors/
 export LSCOLORS="exfxcxdxbxegedabagacad"
