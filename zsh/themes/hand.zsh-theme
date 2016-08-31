@@ -1,7 +1,7 @@
 # Modified from AVIT ZSH Theme
 
 PROMPT='
-%{$FG[244]%}$USER%{$reset_color%} ${_current_dir} $(git_prompt_info)
+%{$FG[244]%}$USER%{$reset_color%} ${_current_dir} $(_git_prompt_info)
 👉 %{$resetcolor%} '
 
 PROMPT2=' 👈%{$reset_color%} '
@@ -89,12 +89,16 @@ function get_package_version() {
 
 MODE_INDICATOR="%{$fg_bold[yellow]%}❮%{$reset_color%}%{$fg[yellow]%}❮❮%{$reset_color%}"
 
-if is_git_clean;
-then
-  ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
-else
-  ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"
-fi;
+function _git_prompt_info() {
+  if is_git_clean;
+  then
+    ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
+  else
+    ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}"
+  fi;
+  echo $(git_prompt_info)
+}
+
 
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 
