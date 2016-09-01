@@ -70,6 +70,7 @@ function _git_time_since_commit() {
   fi
 }
 
+# TODO: make this recurse up until it finds a package.json, stopping at ~
 function get_package_version() {
   # Version key/value should be on his own line
   if [ -f "package.json" ];
