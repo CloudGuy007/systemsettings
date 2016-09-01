@@ -8,7 +8,7 @@
     "editor.fontFamily": "Fira Code",
     "editor.fontSize": 12,
     "editor.fontLigatures": true,
-    "eslint.enable": false,
+    "eslint.enable": true,
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
