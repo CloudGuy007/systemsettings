@@ -6,4 +6,7 @@ alias ghlog='git log --all --graph --format="%C(yellow)%h %C(reset)%an %C(blue)%
 alias resource='source ~/.bash_profile'
 alias p='python'
 
-alias mkexe='chmod a+x'
+function mkexe() {
+  touch $1;
+  chmod a+x $1;
+}
