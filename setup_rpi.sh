@@ -19,3 +19,7 @@ link zsh/base-aliases.zsh .oh-my-zsh/custom/base-aliases.zsh
 link zsh/git.zsh .oh-my-zsh/custom/git.zsh
 link zsh/marks.zsh .oh-my-zsh/custom/marks.zsh
 link zsh/themes/hand.zsh-theme .oh-my-zsh/custom/themes/hand.zsh-theme
+
+if [ "$USERNAME" == "pi" ]; then
+  link zsh/rpi-aliases.sh .oh-my-zsh/custom/rpi-aliases.zsh
+fi
