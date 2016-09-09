@@ -17,6 +17,8 @@
         "bower_components/": true
     },
     "files.trimTrailingWhitespace": true,
+    "html.suggest.angular1": false,
+    "html.suggest.ionic": false,
     "jscs.disableIfNoConfig": true,
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.shellArgs.osx": ["-l"]
