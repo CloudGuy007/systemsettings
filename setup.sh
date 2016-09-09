@@ -21,3 +21,5 @@ link zsh/marks.zsh .oh-my-zsh/custom/marks.zsh
 link zsh/themes/hand.zsh-theme .oh-my-zsh/custom/themes/hand.zsh-theme
 link code/settings.json Library/Application\ Support/Code/User/settings.json
 link code/keybindings.json Library/Application\ Support/Code/User/keybindings.json
+
+source ~/.bash_profile

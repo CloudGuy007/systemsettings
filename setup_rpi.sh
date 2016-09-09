@@ -20,3 +20,5 @@ link zsh/git.zsh .oh-my-zsh/custom/git.zsh
 link zsh/marks.zsh .oh-my-zsh/custom/marks.zsh
 link zsh/themes/hand.zsh-theme .oh-my-zsh/custom/themes/hand.zsh-theme
 link zsh/rpi-aliases.zsh .oh-my-zsh/custom/rpi-aliases.zsh
+
+source ~/.bash_profile
