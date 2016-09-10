@@ -9,6 +9,13 @@
     "editor.fontSize": 12,
     "editor.fontLigatures": true,
     "eslint.enable": true,
+    "files.associations": {
+        "bashrc": "shellscript",
+        "bash_*": "shellscript",
+        "zshrc": "shellscript",
+        "*.zsh": "shellscript",
+        "*.zsh-theme": "shellscript"
+    },
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
