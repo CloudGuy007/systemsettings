@@ -1,7 +1,7 @@
 # Modified from AVIT ZSH Theme
 
 PROMPT='
-%{$FG[244]%}$USER%{$reset_color%} ${_current_dir} $(_git_prompt_info)
+%{$FG[244]%}$USER${_user_host}%{$reset_color%} ${_current_dir} $(_git_prompt_info)
 👉 %{$resetcolor%} '
 
 PROMPT2=' 👈%{$reset_color%} '
