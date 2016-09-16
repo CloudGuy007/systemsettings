@@ -1,7 +1,7 @@
 # Modified from AVIT ZSH Theme
 
 PROMPT='
-%{$FG[244]%}$USER${_user_host}%{$reset_color%} ${_current_dir} $(_git_prompt_info)
+%{$FG[244]%}$(_user_host)%{$reset_color%} ${_current_dir} $(_git_prompt_info)
 👉 %{$resetcolor%} '
 
 PROMPT2=' 👈%{$reset_color%} '
@@ -22,14 +22,12 @@ function _current_dir() {
 }
 
 function _user_host() {
-  if [[ -n $SSH_CONNECTION ]]; then
+  if [[ -n $SSH_CONNECTION ]] || [[ -n $SSH_CLIENT ]]; then
     me="%n@%m"
-  elif [[ $LOGNAME != $USER ]]; then
+  else
     me="%n"
   fi
-  if [[ -n $me ]]; then
-    echo "%{$fg[cyan]%}$me%{$reset_color%}:"
-  fi
+  echo $me
 }
 
 function _vi_status() {
