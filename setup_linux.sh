@@ -15,6 +15,7 @@ function link() {
 # something about making .oh_my_zsh/custom/themes if it isn't there
 link common/bash_profile .bash_profile
 link common/zshrc .zshrc
+link common/vimrc .vimrc
 link zsh/base-aliases.zsh .oh-my-zsh/custom/base-aliases.zsh
 link zsh/git.zsh .oh-my-zsh/custom/git.zsh
 link zsh/marks.zsh .oh-my-zsh/custom/marks.zsh
