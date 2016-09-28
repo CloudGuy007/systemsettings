@@ -13,20 +13,30 @@
         "bashrc": "shellscript",
         "bash_*": "shellscript",
         "zshrc": "shellscript",
+        "*.timeline": "json",
         "*.zsh": "shellscript",
         "*.zsh-theme": "shellscript"
     },
     "files.exclude": {
         "**/.git": true,
+        "**/.hg": true,
         "**/.svn": true,
         "**/.DS_Store": true,
         "node_modules/": true,
         "bower_components/": true
     },
     "files.trimTrailingWhitespace": true,
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/bower_components/**": true,
+        "**/node_modules/**": true
+    },
+    "git.allowLargeRepositories": true,
+    "git.enableLongCommitWarning": false,
     "html.suggest.angular1": false,
     "html.suggest.ionic": false,
     "jscs.disableIfNoConfig": true,
     "terminal.external.osxExec": "iTerm.app",
-    "terminal.integrated.shellArgs.osx": ["-l"]
+    "terminal.integrated.shellArgs.osx": ["-l"],
+    "window.restoreFullscreen": true
 }
