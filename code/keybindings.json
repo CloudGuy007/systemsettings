@@ -8,6 +8,8 @@
 { "key": "cmd+k cmd+u", "command": "extension.changeCase.upper", "when": "editorTextFocus" },
 { "key": "cmd+k cmd+l", "command": "extension.changeCase.lower", "when": "editorTextFocus" },
 { "key": "cmd+enter",                    "command": "workbench.action.debug.start", "when": "!inDebugMode" },
+{ "key": "cmd+r",          "command": "workbench.action.debug.restart",
+                                     "when": "inDebugMode" },
 { "key": "shift+cmd+c",                "command": "workbench.action.terminal.toggleTerminal" },
 { "key": "shift+cmd+alt+c",           "command": "workbench.action.terminal.openNativeConsole" }
 ]
